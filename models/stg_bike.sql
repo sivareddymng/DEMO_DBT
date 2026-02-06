@@ -13,7 +13,8 @@ WITH BIKE AS (
     END_LNG,
     MEMBER_CSUL
     from {{ source('demo', 'bike') }}
-    where ride_id not in ('Bike Id','bikeid')
+   -- where ride_id not in ('Bike Id','bikeid')
+   where  ride_id not ilike '%id%'
 )
 
 select * from bike
